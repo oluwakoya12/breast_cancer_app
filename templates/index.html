@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Breast Cancer Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Breast Cancer Prediction</h2>
+        <form method="post" action="/predict">
+            {% for i in range(30) %}
+                <label for="feature{{ i }}">Feature {{ i+1 }}</label>
+                <input type="number" step="any" name="feature{{ i }}" id="feature{{ i }}" required>
+            {% endfor %}
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if result %}
+        <div class="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
